@@ -13,13 +13,19 @@ class Product{
 
 $classArray=['User','Product'];
 
-foreach($classArray as $class){
+$tiempo_inicial = microtime(true); //true es para que sea calculado en segundos
+for($i=0;$i<12000;$i++){
+    foreach($classArray as $class){
 
-    $instance=new $class();
-    $methodName='get'.$class.'Name';
-    echo $instance->$methodName();
-    echo '<br>';
+        $instance=new $class();
+    }
 }
+
+
+$tiempo_final = microtime(true);
+
+$tiempo = $tiempo_final - $tiempo_inicial;
+echo $tiempo;
 
 // OUTPUT:
 // Juan Perez
